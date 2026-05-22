@@ -1,0 +1,196 @@
+:root{
+  /* Default to dark theme for the whole site */
+  --bg:#071019;         /* very dark navy */
+  --card:#0d1620;       /* card background */
+  --muted:#98a9b8;      /* muted text */
+  --accent:#44c767;     /* accent green */
+  --text:#e6f0f8;       /* primary text */
+  --border:rgba(255,255,255,0.04);
+  --footer:rgba(255,255,255,0.04);
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  padding:12px;
+}
+#app{
+  width:100%;
+  max-width:900px;
+  display:flex;
+  flex-direction:column;
+  height:90vh;
+  border-radius:12px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,0.02));
+  box-shadow:0 6px 24px rgba(20,30,50,0.08);
+  overflow:auto;
+}
+
+/* header */
+.topbar{
+  padding:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid var(--border);
+}
+.btn-group{
+  display:flex;
+  gap:8px;
+}
+.tab{
+  background:transparent;
+  border:1px solid transparent;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:600;
+  color:var(--muted);
+  touch-action:manipulation;
+  min-height:44px;
+  min-width:72px;
+}
+.tab.active{
+  background:var(--accent);
+  color:#fff;
+  border-color:rgba(0,0,0,0.06);
+  box-shadow:0 3px 8px rgba(42,122,42,0.14);
+}
+
+/* small text icon used for Pokédex button */
+.pokedex-icon{
+  display:inline-block;
+  width:28px;
+  height:28px;
+  line-height:28px;
+  text-align:center;
+  border-radius:6px;
+  background:transparent;
+  color:var(--muted);
+  font-weight:700;
+  font-size:16px;
+  margin:0 auto;
+}
+.tab.active .pokedex-icon{ color:#fff; }
+
+/* main */
+main{flex:1;display:flex;align-items:stretch;justify-content:center;padding:12px}
+.center{display:flex;flex-direction:column;align-items:stretch}
+
+/* panels */
+.panel{display:none;flex:1;overflow:auto;padding:8px;-webkit-overflow-scrolling:touch}
+.panel.visible{display:block}
+
+/* home */
+.title{margin:18px 0 6px;font-size:20px;text-align:center}
+.subtitle{margin:0 0 18px;text-align:center;color:var(--muted)}
+
+/* hero buttons on home */
+.home-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.hero-buttons{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:8px}
+/* Larger primary buttons for better touch targets */
+.big-btn{
+  width:180px;
+  height:200px;
+  background:var(--card);
+  border-radius:14px;
+  border:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:var(--text);
+  font-weight:800;
+  font-size:16px;
+  padding:12px;
+  min-width:160px;
+  touch-action:manipulation;
+  box-shadow:0 8px 22px rgba(0,0,0,0.28);
+}
+.big-btn img{width:96px;height:96px;object-fit:contain}
+.big-btn .btn-label{font-size:15px}
+.big-btn.secondary{opacity:0.9;color:var(--muted);border-style:dashed}
+.big-btn:active{transform:translateY(1px)}
+.placeholder-icon{
+  width:96px;height:96px;border-radius:10px;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:36px;
+}
+
+/* responsive: stack buttons on narrow screens */
+@media (max-width:420px){
+  .hero-buttons{flex-direction:column}
+  .big-btn{width:160px}
+}
+
+/* grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:10px;
+  padding:6px;
+}
+.card{
+  background:var(--card);
+  border-radius:10px;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-align:center;
+  box-shadow:0 2px 6px rgba(10,10,10,0.04);
+  min-height:120px;
+  color:var(--text);
+}
+.card img{width:72px;height:72px;object-fit:contain}
+.name{font-weight:700;font-size:13px}
+.number{font-size:12px;color:var(--muted)}
+
+/* footer */
+.footer{
+  padding:8px 12px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  border-top:1px solid var(--footer);
+}
+
+/* responsive small screens */
+@media (max-height:700px){
+  .title{margin-top:10px}
+  .grid{gap:8px}
+  .card{padding:6px}
+}
+
+/* Dark scrollbar styles (WebKit) */
+::-webkit-scrollbar{ width:12px; height:12px; }
+::-webkit-scrollbar-track{ background:transparent; border-radius:8px; }
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.06));
+  border-radius:8px;
+  border:3px solid transparent;
+  background-clip:padding-box;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.1));
+}
+
+/* Dark scrollbar for Firefox */
+*{
+  scrollbar-width:thin;
+  scrollbar-color: rgba(255,255,255,0.06) transparent;
+}
+
+/* Slightly stronger thumb on the main app area for visibility */
+#app::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.06);
+}
+#app{ scrollbar-color: rgba(255,255,255,0.06) transparent; }

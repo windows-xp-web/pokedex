@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {}
+  }
+  </script>
+</head>
+<body>
+  <div id="app" class="dark">
+    <header class="topbar">
+      <div class="btn-group">
+        <!-- Header button removed from main menu as requested -->
+      </div>
+    </header>
+
+    <main id="view" class="center">
+      <section id="home" class="panel visible">
+        <div class="home-hero">
+
+
+          <div class="hero-buttons" role="group" aria-label="Acciones principales">
+            <button id="home-pokedex" class="big-btn" title="Abrir Pokédex">
+              <img src="/pokedex.gif" alt="Pokedex" />
+              <div class="btn-label">Pokédex</div>
+            </button>
+
+            <button id="home-soon" class="big-btn secondary" title="Próximamente">
+              <div class="placeholder-icon">…</div>
+              <div class="btn-label">Próximamente</div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="pokedex" class="panel">
+        <div class="pokedex-header" style="display:flex;align-items:center;justify-content:center;padding:8px 0 12px;">
+          <button id="btn-back" class="tab" title="Volver">volver</button>
+        </div>
+        <div id="pokedex-grid" class="grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer"></footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
